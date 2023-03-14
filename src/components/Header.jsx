@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import Container from "react-bootstrap/Container";
 
@@ -6,7 +7,7 @@ function Header() {
   const [isDisplayed, setIsDisplayed] = useState(false);
 
   function handleMenuClick() {
-    setIsDisplayed(prevIsDisplayed => !prevIsDisplayed);
+    setIsDisplayed((prevIsDisplayed) => !prevIsDisplayed);
   }
 
   let dropdownMenuClasses = styles.dropdownMenu;
@@ -17,41 +18,50 @@ function Header() {
   return (
     <header>
       <nav className={`${styles.nav} bg-primary w-100`}>
-        <Container className='d-flex justify-content-between align-items-center'>
-          <a href='index.html' className='p-3'>
+        <Container className="d-flex justify-content-between align-items-center">
+          <Link to="/" className="p-3">
             <img
-              src='https://itschool.ro/images/logo-itschool-dark.svg'
-              alt='itschool logo'
+              src="https://itschool.ro/images/logo-itschool-dark.svg"
+              alt="itschool logo"
             />
-          </a>
+          </Link>
           <div className={styles.menuIconContainer}>
             <span
               onClick={handleMenuClick}
-              className={`material-icons ${styles.menuIcon} text-light`}>
+              className={`material-icons ${styles.menuIcon} text-light`}
+            >
               {" "}
               menu{" "}
             </span>
             <ul className={dropdownMenuClasses}>
               <li className={isDisplayed ? "container" : null}>
-                <a
-                  href='pages/courses.html'
-                  className='p-3 text-uppercase text-light'>
+                <Link
+                  to="/category/technology"
+                  className="p-3 text-uppercase text-light"
+                >
                   Tech
-                </a>
+                </Link>
               </li>
               <li className={isDisplayed ? "container" : null}>
-                <a
-                  href='pages/about.html'
-                  className='p-3 text-uppercase text-light'>
+                <Link
+                  to="/category/football"
+                  className="p-3 text-uppercase text-light"
+                >
                   Fotbal
-                </a>
+                </Link>
               </li>
               <li className={isDisplayed ? "container" : null}>
-                <a
-                  href='pages/contact.html'
-                  className='p-3 text-uppercase text-light'>
+                <Link
+                  to="/category/games"
+                  className="p-3 text-uppercase text-light"
+                >
+                  Games
+                </Link>
+              </li>
+              <li className={isDisplayed ? "container" : null}>
+                <Link to="/favorites" className="p-3 text-uppercase text-light">
                   Favorite
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

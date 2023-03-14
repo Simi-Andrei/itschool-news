@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Page404.module.css";
 import Container from "react-bootstrap/Container";
+import { Link } from "react-router-dom";
 
 function Page404() {
   return (
@@ -13,9 +14,9 @@ function Page404() {
           accesezi nu (mai) există.
         </p>
         <strong className={`${styles.error404}`}>404 :(</strong>
-        <p className="h4 text-center">
+        <Link to="/" className="h4 text-center">
           Hai înapoi pe site să vezi o nouă știre!
-        </p>
+        </Link>
       </Container>
     </div>
   );
